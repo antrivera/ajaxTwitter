@@ -1,5 +1,5 @@
 const FollowToggle = require('./follow_toggle');
-const UserSearch = require('./users_search');
+const UsersSearch = require('./users_search');
 
 $( () => {
   let $followToggles = $('.follow-toggle');
@@ -9,6 +9,6 @@ $( () => {
 
   let $usersSearch = $('.users-search');
   $usersSearch.each( (_, userSearch) => {
-    new UserSearch(userSearch);
+    new UsersSearch(userSearch);
   });
 });

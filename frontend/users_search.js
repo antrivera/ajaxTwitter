@@ -1,3 +1,5 @@
+const FollowToggle = require('./follow_toggle');
+
 class UsersSearch {
 
   constructor(el) {
@@ -13,11 +15,17 @@ class UsersSearch {
       let $li = $('<li></li>');
 
       let $link = $(`<a href="/users/${user.id}">${user.username}</a>`);
-      let $button = $(`<button type="button"></button>`);
+      let $button = $(`<button type="button class="follow-toggle"></button>`);
 
       let options = {
         userId: user.id,
-      ;
+        followState: user.followed ? "followed" : "unfollowed"
+      };
+
+      let buttonText = user.followed ? "Unfollow!" : "Follow!";
+      $button.text(buttonText);
+
+      let followToggle = new FollowToggle($button, options);
 
       $li.append($link);
       $li.append($button);

@@ -3,8 +3,8 @@ class FollowToggle {
   constructor(el, options) {
     this.$buttonEl = $(el);
     this.userId = this.$buttonEl.data('user-id') || options.userId;
-    this.followState = this.$buttonEl.data('initial-follow-state') ||
-      options.followState;
+    this.followState = (this.$buttonEl.data('initial-follow-state') ||
+      options.followState);
     this.render();
     this.handleClick();
   }
@@ -18,10 +18,10 @@ class FollowToggle {
       buttonText = "Unfollow!";
       this.$buttonEl.attr("disabled", false);
     } else if (this.followState === "following") {
-      buttonText = "following";
+      buttonText = "following...";
       this.$buttonEl.attr("disabled", true);
     } else if (this.followState === "unfollowing") {
-      buttonText = "unfollowing";
+      buttonText = "unfollowing...";
       this.$buttonEl.attr("disabled", true);
     }
 
