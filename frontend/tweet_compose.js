@@ -69,6 +69,16 @@ class TweetCompose {
       let $scriptTag = this.$tweetComposeEl.find('.mentioned-users-script');
       let scriptHTML = $scriptTag.html();
       $('.mentioned-users').append(scriptHTML);
+      this.removeMentionedUser();
+    });
+  }
+
+  removeMentionedUser() {
+    let $removeUserAnchor = $('.remove-mentioned-user');
+
+    $removeUserAnchor.on("click", event => {
+      let $removeTag = event.currentTarget;
+      $removeTag.closest('div').remove();
     });
   }
 }
