@@ -4,8 +4,10 @@ class TweetCompose {
     this.$tweetComposeEl = $(el);
     this.$submitEl = this.$tweetComposeEl.find(".tweet-submit");
     this.$tweetTextArea = this.$tweetComposeEl.find('textarea');
+    this.$addUserAnchor = this.$tweetComposeEl.find('.add-mentioned-user');
     this.submit();
     this.handleInput();
+    this.addMentionedUser();
   }
 
   submit() {
@@ -59,8 +61,14 @@ class TweetCompose {
       } else {
         $('.chars-left').text(`Characters Remaining: ${charsCount}`);
       }
+    });
+  }
 
-
+  addMentionedUser() {
+    this.$addUserAnchor.on("click", event => {
+      let $scriptTag = this.$tweetComposeEl.find('.mentioned-users-script');
+      let scriptHTML = $scriptTag.html();
+      $('.mentioned-users').append(scriptHTML);
     });
   }
 }
