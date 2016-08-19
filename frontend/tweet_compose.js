@@ -35,6 +35,8 @@ class TweetCompose {
     $inputs.each( (_, $input) => {
       $input.empty();
     });
+    $('.mentioned-users').empty();
+    this.$tweetTextArea.val("");
   }
 
   handleSuccess(tweet, $inputs) {
